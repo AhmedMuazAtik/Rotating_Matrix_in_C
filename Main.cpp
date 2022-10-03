@@ -18,18 +18,18 @@ void menu(int matrix[])
 	int rotatedMatrix[matrix[0]][matrix[1]];
 
 	int value = 1;
-	
+
 	//UnrotatedMatrix'e rastgele degerler assign ediliyor.
 	for (int i = 0; i < matrix[0]; i++)
-				{
-					for (int j = 0; j < matrix[1]; j++)
-					{
-						unrotatedMatrix[i][j] = (rand() % matrix[3]) + 1;
-					}
-				}
+	{
+		for (int j = 0; j < matrix[1]; j++)
+		{
+			unrotatedMatrix[i][j] = (rand() % matrix[3]) + 1;
+		}
+	}
 
 	while (value >= 1 && value <= 5)
-	{		
+	{
 		printf("---------------------------------------");
 		printf("\n{");
 		printf("%d,%d,%d,%d,%d", matrix[0], matrix[1], matrix[2], matrix[3], matrix[4]);
@@ -57,7 +57,7 @@ void menu(int matrix[])
 					{
 						if (unrotatedMatrix[i][j] != NULL)
 						{
-							printf("%d ", *( *(unrotatedMatrix + i) + j));
+							printf("%d ", *(*(unrotatedMatrix + i) + j));
 						}
 					}
 
@@ -71,7 +71,7 @@ void menu(int matrix[])
 				{
 					for (int i = 1; i < matrix[0] - 1; i++)
 					{
-						//Matrix'in ortasinda kalan rotate etmeyecek sayilar rotatedMatrix'e assign ediliyor.
+					 			//Matrix'in ortasinda kalan rotate etmeyecek sayilar rotatedMatrix'e assign ediliyor.
 						for (int j = 1; j < matrix[1] - 1; j++)
 						{
 							rotatedMatrix[i][j] = unrotatedMatrix[i][j];
@@ -80,34 +80,34 @@ void menu(int matrix[])
 
 					while (matrix[4] > 0)
 					{
-						//Step 0 oluncaya kadar matrix 1'er kez saga kayiyor.
+					 			//Step 0 oluncaya kadar matrix 1'er kez saga kayiyor.
 						for (int j = 0; j < matrix[1] - 1; j++)
 						{
-							//Matrix'in ust kismi saga kaydiriliyor.
+						 				//Matrix'in ust kismi saga kaydiriliyor.
 							rotatedMatrix[0][j + 1] = unrotatedMatrix[0][j];
-						}						
+						}
 
 						for (int i = 0; i < matrix[0] - 1; i++)
 						{
-							//Matrix'in sag kismi asagi kaydiriliyor.
-							rotatedMatrix[i + 1][matrix[1]-1] = unrotatedMatrix[i][matrix[1]-1];
+						 				//Matrix'in sag kismi asagi kaydiriliyor.
+							rotatedMatrix[i + 1][matrix[1] - 1] = unrotatedMatrix[i][matrix[1] - 1];
 						}
 
 						for (int j = matrix[1] - 1; j > 0; j--)
 						{
-							//Matrix'in alt kismi sola kaydiriliyor.
-							rotatedMatrix[matrix[0]-1][j - 1] = unrotatedMatrix[matrix[0]-1][j];
+						 				//Matrix'in alt kismi sola kaydiriliyor.
+							rotatedMatrix[matrix[0] - 1][j - 1] = unrotatedMatrix[matrix[0] - 1][j];
 						}
 
 						for (int i = matrix[0] - 1; i > 0; i--)
 						{
-							//Matrix'in sol kismi yukari kaydiriliyor.
+						 				//Matrix'in sol kismi yukari kaydiriliyor.
 							rotatedMatrix[i - 1][0] = unrotatedMatrix[i][0];
 						}
 
 						for (int i = 0; i < matrix[0]; i++)
 						{
-							//Step sayisi 1'den farkli olabileceginden her defasinda esitliyoruz.
+						 				//Step sayisi 1'den farkli olabileceginden her defasinda esitliyoruz.
 							for (int j = 0; j < matrix[1]; j++)
 							{
 								unrotatedMatrix[i][j] = rotatedMatrix[i][j];
@@ -117,13 +117,13 @@ void menu(int matrix[])
 						matrix[4]--;
 					}
 				}
-				
+
 				//Eger donme yonu solsa.
 				else if (matrix[2] == -1)
 				{
 					for (int i = 1; i < matrix[0] - 1; i++)
 					{
-						//Matrix'in ortasinda kalan rotate etmeyecek sayilar rotatedMatrix'e assign ediliyor.
+					 			//Matrix'in ortasinda kalan rotate etmeyecek sayilar rotatedMatrix'e assign ediliyor.
 						for (int j = 1; j < matrix[1] - 1; j++)
 						{
 							rotatedMatrix[i][j] = unrotatedMatrix[i][j];
@@ -132,34 +132,34 @@ void menu(int matrix[])
 
 					while (matrix[4] > 0)
 					{
-						//Step 0 oluncaya kadar matrix 1'er kez sola kayiyor.
+					 			//Step 0 oluncaya kadar matrix 1'er kez sola kayiyor.
 						for (int i = matrix[1] - 1; i > 0; i--)
 						{
-							//Matrix'in ust kismi sola kaydiriliyor.
+						 				//Matrix'in ust kismi sola kaydiriliyor.
 							rotatedMatrix[0][i - 1] = unrotatedMatrix[0][i];
 						}
 
 						for (int i = 0; i < matrix[0] - 1; i++)
 						{
-							//Matrix'in sol kismi asagi kaydiriliyor.
+						 				//Matrix'in sol kismi asagi kaydiriliyor.
 							rotatedMatrix[i + 1][0] = unrotatedMatrix[i][0];
 						}
 
 						for (int i = 0; i < matrix[1] - 1; i++)
 						{
-							//Matrix'in alt kismi saga kaydiriliyor.
+						 				//Matrix'in alt kismi saga kaydiriliyor.
 							rotatedMatrix[matrix[1] - 1][i + 1] = unrotatedMatrix[matrix[1] - 1][i];
 						}
 
 						for (int i = matrix[0] - 1; i > 0; i--)
 						{
-							//Matrix'in sag kismi yukari kaydiriliyor.
+						 				//Matrix'in sag kismi yukari kaydiriliyor.
 							rotatedMatrix[i - 1][matrix[0] - 1] = unrotatedMatrix[i][matrix[0] - 1];
 						}
 
 						for (int i = 0; i < matrix[0]; i++)
 						{
-							//Step sayisi 1'den farkli olabileceginden her defasinda esitliyoruz.
+						 				//Step sayisi 1'den farkli olabileceginden her defasinda esitliyoruz.
 							for (int j = 0; j < matrix[1]; j++)
 							{
 								unrotatedMatrix[i][j] = rotatedMatrix[i][j];
@@ -177,7 +177,7 @@ void menu(int matrix[])
 				{
 					for (int j = 0; j < matrix[1]; j++)
 					{
-							printf("%d ", *( *(rotatedMatrix + i) + j));
+						printf("%d ", *(*(rotatedMatrix + i) + j));
 					}
 
 					printf("\n");
@@ -188,31 +188,33 @@ void menu(int matrix[])
 				//Matrix'in satiri, sutunu ve deger araligi kullanici tarafindan giriliyor.
 				printf("Matrix row size (1-9): \n-> ");
 				scanf("%d", &rowMatrix);
-				
+
 				//Satir icin kontroller saglaniyor.
-				if (rowMatrix < 1 || rowMatrix > 9) {
+				if (rowMatrix < 1 || rowMatrix > 9)
+				{
 					rowMatrix = 1;
 					printf("Wrong value has been entered\n");
 				}
-				
+
 				printf("Matrix column size (1-9): \n-> ");
 				scanf("%d", &columnMatrix);
-				
+
 				//Sutun icin kontroller saglaniyor.
-				if (columnMatrix < 1 || columnMatrix > 9) {
+				if (columnMatrix < 1 || columnMatrix > 9)
+				{
 					columnMatrix = 1;
 					printf("Wrong value has been entered\n");
 				}
-				
+
 				printf("Enter a value bigger than 0 lower than 100 for matrix interval: \n-> ");
 				scanf("%d", &numbersMatrix);
-			
+
 				//Deger araligi icin kontroller saglaniyor.
 				if (numbersMatrix <= 0 || numbersMatrix >= 100)
 				{
 					numbersMatrix = 1;
 					printf("Wrong value has been entered\n");
-				}	
+				}
 
 				matrix[0] = rowMatrix;
 				matrix[1] = columnMatrix;
@@ -228,7 +230,9 @@ void menu(int matrix[])
 				if (directionMatrix == 1 || directionMatrix == -1)
 				{
 					matrix[2] = directionMatrix;
-				} else {
+				}
+				else
+				{
 					printf("Wrong value has been entered\n");
 				}
 
@@ -239,11 +243,15 @@ void menu(int matrix[])
 				scanf("%d", &stepMatrix);
 
 				//Adim sayisi icin kontroller saglaniyor.
-				if (stepMatrix >= 1 && stepMatrix <= 99) {
-				matrix[4] = stepMatrix;
-				} else {
+				if (stepMatrix >= 1 && stepMatrix <= 99)
+				{
+					matrix[4] = stepMatrix;
+				}
+				else
+				{
 					printf("Wrong value has been entered\n");
 				}
+
 				break;
 			case 5:
 				//Bu secenek secildiginde program durduruluyor.
@@ -258,5 +266,6 @@ void menu(int matrix[])
 int main()
 {
 	int matrix[5] = { 5, 5, 1, 99, 5 };
+
 	menu(matrix);
 }
